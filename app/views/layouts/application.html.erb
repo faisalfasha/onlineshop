@@ -30,12 +30,19 @@
 			      </ul>
 			    </li>
 				</ul>
+        <% if cart_has_items %>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+          <% @satu=1  %>
+            <li><%= link_to "Cart #{cart_count_over_one}", cart_path(@cart) %></li>
+        </ul>
+        <% end %>
 				<% if !user_signed_in? %>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
 						<li><%= link_to "Login", new_user_session_path %></li>
 				    <li><%= link_to "Sign up", new_user_registration_path %></li>
-					</li>>
+					</li>
 				</ul>
 				<% end %>
 				<% if user_signed_in? %>
